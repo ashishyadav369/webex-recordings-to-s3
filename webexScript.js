@@ -22,7 +22,7 @@ async function getRecordingsList() {
 async function genrateDownloadUrl() {
   const recordingsWithDirectUrl = [];
   const recordingsList = await getRecordingsList();
-  for (let i = 0; i < recordingsList.length; i++) {
+  for (let i = 0; i < 1; i++) {
     console.log(
       `Genrating direct download url for :  ${recordingsList[i].topic}`
     );
