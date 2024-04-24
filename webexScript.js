@@ -20,7 +20,7 @@ async function getRecordingsList() {
 
 // TODO:: Improve code & cleanup
 async function genrateDownloadUrl() {
-  const downloadUrls = [];
+  const recordingsWithDirectUrl = [];
   const recordingsList = await getRecordingsList();
   for (let i = 0; i < recordingsList.length; i++) {
     console.log(
@@ -183,15 +183,17 @@ async function genrateDownloadUrl() {
     );
 
     const finalUrl = baseDownloadUrl + directDownloadUrl[3];
-    downloadUrls.push(finalUrl);
+    recordingsWithDirectUrl.push({
+      downloadUrl: finalUrl,
+      name: recordingsList[i].topic,
+    });
   }
   console.log("Finished genrerating download urls for recordings");
-  return downloadUrls;
+  return recordingsWithDirectUrl;
 }
 
-// TODO:: Add function to transfer recordings to s3 bucket
 // TODO:: Exception handelling
 
-(async function () {
-  console.log(await genrateDownloadUrl());
-})();
+module.exports = {
+  genrateDownloadUrl,
+};

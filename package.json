@@ -9,6 +9,9 @@
   "author": "LeFou",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "aws-sdk": "^2.1605.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "progress": "^2.0.3"
   }
 }
